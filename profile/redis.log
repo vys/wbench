@@ -1,0 +1,50 @@
+[31877] 17 Nov 20:15:48.552 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 2.6.4 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in stand alone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 31877
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+[31877] 17 Nov 20:15:48.553 # Server started, Redis version 2.6.4
+[31877] 17 Nov 20:15:48.553 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+[31877] 17 Nov 20:15:48.553 * The server is now ready to accept connections on port 6379
+[31877] 17 Nov 20:16:49.004 * 10000 changes in 60 seconds. Saving...
+[31877] 17 Nov 20:16:49.005 * Background saving started by pid 5674
+[5674] 17 Nov 20:16:49.008 * DB saved on disk
+[31877] 17 Nov 20:16:49.015 * Background saving terminated with success
+[31877] 17 Nov 20:17:50.003 * 10000 changes in 60 seconds. Saving...
+[31877] 17 Nov 20:17:50.004 * Background saving started by pid 11193
+[11193] 17 Nov 20:17:50.006 * DB saved on disk
+[31877] 17 Nov 20:17:50.014 * Background saving terminated with success
+[31877] 17 Nov 20:18:51.005 * 10000 changes in 60 seconds. Saving...
+[31877] 17 Nov 20:18:51.006 * Background saving started by pid 16530
+[16530] 17 Nov 20:18:51.009 * DB saved on disk
+[31877] 17 Nov 20:18:51.017 * Background saving terminated with success
+[31877] 17 Nov 20:19:52.001 * 10000 changes in 60 seconds. Saving...
+[31877] 17 Nov 20:19:52.003 * Background saving started by pid 18769
+[18769] 17 Nov 20:19:52.005 * DB saved on disk
+[31877] 17 Nov 20:19:52.013 * Background saving terminated with success
+[31877] 17 Nov 20:20:53.003 * 10000 changes in 60 seconds. Saving...
+[31877] 17 Nov 20:20:53.004 * Background saving started by pid 23274
+[23274] 17 Nov 20:20:53.006 * DB saved on disk
+[31877] 17 Nov 20:20:53.014 * Background saving terminated with success
+[31877] 17 Nov 20:21:54.005 * 10000 changes in 60 seconds. Saving...
+[31877] 17 Nov 20:21:54.006 * Background saving started by pid 28548
+[28548] 17 Nov 20:21:54.008 * DB saved on disk
+[31877] 17 Nov 20:21:54.016 * Background saving terminated with success
+[31877] 17 Nov 20:22:55.002 * 10000 changes in 60 seconds. Saving...
+[31877] 17 Nov 20:22:55.003 * Background saving started by pid 1845
+[1845] 17 Nov 20:22:55.006 * DB saved on disk
+[31877] 17 Nov 20:22:55.013 * Background saving terminated with success
