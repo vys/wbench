@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+	_ "net/http/pprof"
 	"runtime"
-    _ "net/http/pprof"
 )
 
 const MAXPROCS = 16
@@ -49,7 +49,6 @@ func responseHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	runtime.GOMAXPROCS(MAXPROCS)
-	profile()
 
 	pool = NewClientPool(MAXCLIENTS)
 
