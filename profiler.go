@@ -1,9 +1,12 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
+	"fmt"
 	"github.com/vys/go-humanize"
 	"log"
+	"net/http"
 	"os"
 	"runtime"
 	"runtime/pprof"
@@ -20,22 +23,40 @@ func profile() {
 	}
 }
 
-func GoRuntimeStats() {
+type Stats map[string]interface{}
+
+func GetRuntimeStats() Stats {
 	m := new(runtime.MemStats)
-	for {
-		time.Sleep(5 * time.Second)
-		log.Println("# goroutines: ", runtime.NumGoroutine())
-		runtime.ReadMemStats(m)
-		log.Println("Memory Acquired: ", humanize.Bytes(m.Sys))
-		log.Println("Memory Used    : ", humanize.Bytes(m.Alloc))
-		log.Println("# malloc       : ", m.Mallocs)
-		log.Println("# free         : ", m.Frees)
-		log.Println("GC enabled     : ", m.EnableGC)
-		log.Println("# GC           : ", m.NumGC)
-		log.Println("Last GC time   : ", m.LastGC)
-		log.Println("Next GC        : ", humanize.Bytes(m.NextGC))
+
+	s := make(Stats)
+
+	s["# goroutines"] = runtime.NumGoroutine()
+	runtime.ReadMemStats(m)
+	s["Memory Acquire"] = humanize.Bytes(m.Sys)
+	s["Memory Used"] = humanize.Bytes(m.Alloc)
+	s["# malloc"] = m.Mallocs
+	s["# free"] = m.Frees
+	s["GC enabled"] = m.EnableGC
+	s["# GC"] = m.NumGC
+	s["Last GC time"] = m.LastGC
+	s["Next GC"] = humanize.Bytes(m.NextGC)
+
+	return s
+}
+
+func statsHandler(w http.ResponseWriter, r *http.Request) {
+	gc := r.FormValue("gc")
+	if gc == "1" {
 		runtime.GC()
 	}
+	jb, err := json.MarshalIndent(GetRuntimeStats(), " ", " ")
+
+	if err != nil {
+        fmt.Fprintf(w, "Error in json encoding of stats")
+        return
+	}
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(jb)
 }
 
 func doprofile(fn string) {

@@ -5,9 +5,9 @@ import (
 	"compress/zlib"
 	"encoding/json"
 	"errors"
+	"github.com/vys/Go-Redis/redis"
 	"log"
 	"math"
-	"redis"
 )
 
 var loadtimeout uint64 = 0

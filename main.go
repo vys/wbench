@@ -3,9 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	//"os"
-	//"io"
 	"runtime"
+    _ "net/http/pprof"
 )
 
 const MAXPROCS = 16
@@ -57,6 +56,7 @@ func main() {
 	http.HandleFunc("/", responseHandler)
 	http.HandleFunc("/reset", resetHandler)
 	http.HandleFunc("/test", testHandler)
+	http.HandleFunc("/stats", statsHandler)
 
 	http.ListenAndServe(":8081", nil)
 }
